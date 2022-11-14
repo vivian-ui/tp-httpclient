@@ -1,0 +1,26 @@
+<h1>Vivian da Cunha - RA: 0050832021024</h1>
+
+<hello name="{{ name }}"></hello>
+<div *ngIf="getCurrentPrice()">
+  <hr />
+  <div>
+    <h2>{{ timer.getCounter() }}s</h2>
+    <input type="button" value="Atualizar" (click)="update()" />
+    <span
+      >Atualizado em {{ this.bitcoinService.lastUpdate | date: 'full' }}</span
+    >
+  </div>
+  <hr />
+  <table border="1">
+    <tr>
+      <th>Data/hora</th>
+      <th>USD</th>
+      <th>BRL</th>
+    </tr>
+    <tr *ngFor="let price of this.bitcoinService.updateList">
+      <td>{{ price.timestamp | date: 'full' }}</td>
+      <td>{{ price.USD | currency }}</td>
+      <td>{{ price.BRL | currency }}</td>
+    </tr>
+  </table>
+</div>
