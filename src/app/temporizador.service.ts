@@ -12,6 +12,7 @@ export class TemporizadorService {
       if (this.counter == 0) {
         console.log('finished');
         clearInterval(this.timer);
+        //update(); //
       }
     }, 1000);
   }
