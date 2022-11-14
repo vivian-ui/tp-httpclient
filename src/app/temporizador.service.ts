@@ -4,7 +4,7 @@ import { BitcoinService } from './bitcoin.service';
 @Injectable()
 export class TemporizadorService {
   private timer: any;
-  public counter: number = 6;
+  public counter: number = 60;
 
   constructor(private bitcoinService: BitcoinService) {
     this.timer = setInterval(() => {
