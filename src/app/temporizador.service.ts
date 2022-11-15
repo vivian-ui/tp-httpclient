@@ -19,8 +19,4 @@ export class TemporizadorService {
   getCounter() {
     return this.counter;
   }
-
-  pauseTimer() {
-    clearInterval(this.timer);
-  }
 }
