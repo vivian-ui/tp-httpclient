@@ -2,23 +2,19 @@
 <div *ngIf="getCurrentPrice()">
   <hr />
   <div>
-    <h2>{{ timer.getCounter() }}s</h2>
-
-    <span
-      >Atualizado em {{ this.bitcoinService.lastUpdate | date: 'full' }}</span
-    >
+    <h2>Temporizador: {{ timer.getCounter() }}s</h2>
+    <hr />
+    <table border="1">
+      <tr>
+        <th>Data/hora</th>
+        <th>USD</th>
+        <th>BRL</th>
+      </tr>
+      <tr *ngFor="let price of this.bitcoinService.updateList">
+        <td>{{ price.timestamp | date: 'full' }}</td>
+        <td>{{ price.USD | currency }}</td>
+        <td>{{ price.BRL | currency }}</td>
+      </tr>
+    </table>
   </div>
-  <hr />
-  <table border="1">
-    <tr>
-      <th>Data/hora</th>
-      <th>USD</th>
-      <th>BRL</th>
-    </tr>
-    <tr *ngFor="let price of this.bitcoinService.updateList">
-      <td>{{ price.timestamp | date: 'full' }}</td>
-      <td>{{ price.USD | currency }}</td>
-      <td>{{ price.BRL | currency }}</td>
-    </tr>
-  </table>
 </div>
