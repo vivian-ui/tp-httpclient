@@ -10,9 +10,8 @@ export class TemporizadorService {
     this.timer = setInterval(() => {
       this.counter--;
       if (this.counter == 0) {
-        console.log('finished');
-        clearInterval(this.timer);
-        //update(); //
+        this.counter = 60; //reinicia o contador
+        this.bitcoinService.update(); //chama o update do bitcoin.service.ts
       }
     }, 1000);
   }
